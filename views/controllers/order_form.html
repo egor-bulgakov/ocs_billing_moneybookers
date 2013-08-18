@@ -1,0 +1,25 @@
+
+<form id="{$formId}" action="{$fields.formActionUrl}" method="post">
+    <input type="hidden" name="pay_to_email" value="{$fields.pay_to_email}" />
+    {if $fields.recipient_description != ''}
+    <input type="hidden" name="recipient_description" value="{$fields.recipient_description}" />
+    {/if}
+    <input type="hidden" name="return_url" value="{$fields.return_url}" />
+    <input type="hidden" name="cancel_url" value="{$fields.cancel_url}" />
+    <input type="hidden" name="status_url" value="{$fields.status_url}" />
+    <input type="hidden" name="language" value="{$fields.language}" />
+    <input type="hidden" name="merchant_fields" value="custom" />
+    <input type="hidden" name="custom" value="{$sale->hash}" />
+    <input type="hidden" name="currency" value="{$sale->currency}" />
+    <input type="hidden" name="detail1_description" value="Description:" />
+    <input type="hidden" name="detail1_text" value="{$sale->entityDescription}" />
+    <input type="hidden" name="confirmation_note" value="" />
+    <input type="hidden" name="charset" value="utf-8" />
+	{if $sale->recurring}
+	<input type="hidden" name="rec_amount" value="{$sale->totalAmount}" />
+    <input type="hidden" name="rec_cycle" value="day" />
+    <input type="hidden" name="rec_period" value="{$sale->period}" />
+	{else}
+	<input type="hidden" name="amount" value="{$sale->totalAmount}" />
+    {/if}
+</form>

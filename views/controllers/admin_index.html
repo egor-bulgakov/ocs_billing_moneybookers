@@ -1,0 +1,78 @@
+
+<div class="clearfix">
+    <div class="ow_right ow_stdmargin"><a href="http://oxcandystore.com/?pk=ocsbillingmoneybookers"><img src="{$logo}" /></a></div>
+</div>
+
+{form name='moneybookers-config-form'}
+
+<img src="{$logoUrl}" />
+
+<div class="ow_superwide">
+<table class="ow_table_3">
+    <tr>
+        <td class="ow_label" style="width: 30%">{text key='ocsbillingmoneybookers+recurring_supported'}</td>
+        <td class="ow_value">{if $gateway->recurring}{text key='ocsbillingmoneybookers+available'}{/if}</td>
+    </tr>
+    <tr>
+        <td class="ow_label">{text key='ocsbillingmoneybookers+supported_currencies'}</td>
+        <td class="ow_value">{$gateway->getCurrenciesString()}</td>
+    </tr>
+</table>
+</div>
+
+{if !$currSupported}
+    <div class="ow_anno ow_std_margin ow_nocontent">{text key="base+billing_currency_not_supported" currency=$activeCurrency}</div>
+{/if}
+
+<table class="ow_table_1 ow_form">
+    <tr>
+        <th class="ow_name ow_txtleft" colspan="3">
+            <span class="ow_section_icon ow_ic_gear_wheel">{text key='ocsbillingmoneybookers+account_settings'}</span>
+        </th>
+    </tr>
+    <tr class="{cycle values='ow_alt1, ow_alt2'}">
+        <td class="ow_label">{label name='merchantId'}</td>
+        <td class="ow_value">
+            {input name='merchantId'} {error name='merchantId'}
+        </td>
+        <td class="ow_desc ow_small"></td>
+    </tr>
+    <tr class="{cycle values='ow_alt1, ow_alt2'}">
+        <td class="ow_label">{label name='merchantEmail'}</td>
+        <td class="ow_value">
+            {input name='merchantEmail'} {error name='merchantEmail'}
+        </td>
+        <td class="ow_desc ow_small">{text key='ocsbillingmoneybookers+merchant_email_desc'}</td>
+    </tr>
+    <tr class="{cycle values='ow_alt1, ow_alt2'}">
+        <td class="ow_label">{label name='secret'}</td>
+        <td class="ow_value">
+            {input name='secret'} {error name='secret'}
+        </td>
+        <td class="ow_desc ow_small">{text key='ocsbillingmoneybookers+secret_desc'}</td>
+    </tr>
+    <tr class="{cycle values='ow_alt1, ow_alt2'}">
+        <td class="ow_label">{label name='language'}</td>
+        <td class="ow_value">
+            {input name='language'} {error name='language'}
+        </td>
+        <td class="ow_desc ow_small"></td>
+    </tr>
+    <tr class="{cycle values='ow_alt1, ow_alt2'}">
+        <td class="ow_label">{label name='sandboxMode'}</td>
+        <td class="ow_value">
+            {input name='sandboxMode'} {error name='sandboxMode'}
+        </td>
+        <td class="ow_desc ow_small"></td>
+    </tr>
+    <tr class="{cycle values='ow_alt1, ow_alt2'}">
+        <td class="ow_label">{label name='recipientDescription'}</td>
+        <td class="ow_value">
+            {input name='recipientDescription'}
+        </td>
+        <td class="ow_desc ow_small"></td>
+    </tr>
+    <tr><td colspan="3" class="ow_submit">{submit name='save' class='ow_ic_save'}</td></tr>
+</table>
+
+{/form}

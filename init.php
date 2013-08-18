@@ -1,12 +1,22 @@
 <?php
 
 /**
- * Copyright (c) 2012, Oxwall CandyStore
- * All rights reserved.
+ * EXHIBIT A. Common Public Attribution License Version 1.0
+ * The contents of this file are subject to the Common Public Attribution License Version 1.0 (the "License");
+ * you may not use this file except in compliance with the License. You may obtain a copy of the License at
+ * http://opensource.org/licenses/CPAL-1.0. Software distributed under the License is distributed on an "AS IS" basis,
+ * WITHOUT WARRANTY OF ANY KIND, either express or implied. See the License for the specific language
+ * governing rights and limitations under the License.
+ * The Initial Developer of the Original Code is Oxwall CandyStore (http://oxcandystore.com/).
+ * All portions of the code written by Oxwall CandyStore are Copyright (c) 2013. All Rights Reserved.
 
- * ATTENTION: This commercial software is intended for use with Oxwall Free Community Software http://www.oxwall.org/
- * and is licensed under Oxwall Store Commercial License.
- * Full text of this license can be found at http://www.oxwall.org/store/oscl
+ * EXHIBIT B. Attribution Information
+ * Attribution Copyright Notice: Copyright 2013 Oxwall CandyStore. All rights reserved.
+ * Attribution Phrase (not exceeding 10 words): Powered by Oxwall CandyStore
+ * Attribution URL: http://oxcandystore.com/
+ * Graphic Image as provided in the Covered Code.
+ * Display of Attribution Information is required in Larger Works which are defined in the CPAL as a work
+ * which combines Covered Code or portions thereof with code not governed by the terms of the CPAL.
  */
 
 /**
@@ -52,3 +62,13 @@ function ocsbillingmoneybookers_add_admin_notification( BASE_CLASS_EventCollecto
 }
 
 OW::getEventManager()->bind('admin.add_admin_notification', 'ocsbillingmoneybookers_add_admin_notification');
+
+
+function ocsbillingmoneybookers_add_access_exception( BASE_CLASS_EventCollector $e )
+{
+    $e->add(array('controller' => 'OCSBILLINGMONEYBOOKERS_CTRL_Order', 'action' => 'notify'));
+}
+
+OW::getEventManager()->bind('base.members_only_exceptions', 'ocsbillingmoneybookers_add_access_exception');
+OW::getEventManager()->bind('base.password_protected_exceptions', 'ocsbillingmoneybookers_add_access_exception');
+OW::getEventManager()->bind('base.splash_screen_exceptions', 'ocsbillingmoneybookers_add_access_exception');

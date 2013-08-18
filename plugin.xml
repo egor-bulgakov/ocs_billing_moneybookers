@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <plugin>
-	<name>Moneybookers Billing by Oxwall CandyStore</name>
+	<name>Moneybookers (Skrill) Billing</name>
 	<key>ocsbillingmoneybookers</key>
 	<description>Accept payments from users with Moneybookers (Skrill) payment provider</description>
     <author>Oxwall CandyStore</author>
     <authorEmail>plugins@oxcandystore.com</authorEmail>
 	<authorUrl>http://oxcandystore.com</authorUrl>
 	<developerKey>c36f83152f203c5a947a3fb053e4bc24</developerKey>
-    <build>1</build>
+    <build>2</build>
     <copyright>(C) 2012 Oxwall CandyStore. All rights reserved.</copyright>
-    <license>OSCL</license>
-    <licenseUrl>http://www.oxwall.org/store/oscl</licenseUrl>
+    <license>CPAL 1.0</license>
+    <licenseUrl>http://opensource.org/licenses/CPAL-1.0</licenseUrl>
 </plugin>
